@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useEffect, useState } from "react";
+import ControlPanel from "./components/ControlPanel";
+import UserList from "./components/UserList";
+
+export const Context = createContext({
+  users: [],
+  delUser: null
+});
 
 function App() {
+
+  const [users, setUsers] = useState([]);
+  const [delUser, setDelUser] = useState(null);
+
+  useEffect(()=>{
+    setDelUser(null);
+  }, [users]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ControlPanel users={users} setUsers={setUsers} delSelected={delUser} />
+      <UserList users={users} onSelect={setDelUser} selected={delUser} />
+    </>
   );
 }
 

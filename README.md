@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# User list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project takes a random user from an [api]('https://randomuser.me/api/') and can perform the following actions:
+
+- Add button: Adds a random user to the list.
+- Delete last: Delete the last user from the list.
+- Delete user: Delete a selected user from the list.
 
 ## Available Scripts
 
